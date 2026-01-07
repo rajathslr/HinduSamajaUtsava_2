@@ -125,78 +125,91 @@ if (printButton) {
 }
 
 /**
- * Add event to calendar - Creates .ics file compatible with iOS, Android, and desktop
+ * Add event to calendar - Handles Android and iOS specifically
  */
 function addToCalendar() {
     // Event details
-    const eventTitle = 'Hindu Samajotsava 2026';
+    const eventTitle = translations[currentLang].mainTitle; // Use translated title
     const eventLocation = 'Basaveshwara Temple, Varahasandra, Sompura';
-    const eventDescription = 'Hindu Samajotsava is a festival that celebrates our culture, strength and unity. ' +
-        'A platform to remember our roots and build the future of a strong India. ' +
-        'Join us for this special occasion that is the confluence of heritage and progress.\\n\\n' +
-        'Website: ' + window.location.href + '\\n' +
-        'Venue: Basaveshwara Temple, Varahasandra, Sompura\\n' +
+    const eventDescription = (currentLang === 'en' ?
+        'Hindu Samajotsava is a festival that celebrates our culture, strength and unity. Join us for this grand celebration.\n\n' :
+        'ಹಿಂದೂ ಸಮಾಜೋತ್ಸವವು ನಮ್ಮ ಸಂಸ್ಕೃತಿ, ಶಕ್ತಿ ಮತ್ತು ಒಗ್ಗಟ್ಟನ್ನು ಆಚರಿಸುವ ಹಬ್ಬವಾಗಿದೆ. ನಮ್ಮ ಬೇರುಗಳನ್ನು ನೆನಪಿಸಿಕೊಳ್ಳಲು ಮತ್ತು ಬಲಿಷ್ಠ ಭಾರತದ ಭವಿಷ್ಯವನ್ನು ನಿರ್ಮಿಸಲು ಒಂದು ವೇದಿಕೆಯಾಗಿದೆ.\n\n') +
+        'Website: ' + window.location.href + '\n' +
+        'Venue: Basaveshwara Temple, Varahasandra, Sompura\n' +
         'Google Maps: https://maps.app.goo.gl/n3WwfxZ6XZeQukhr8';
 
-    // Event date and time: January 18, 2026, 10:30 AM
-    const eventStartDate = new Date('2026-01-18T10:30:00');
-    // Assuming event duration of 4 hours
-    const eventEndDate = new Date('2026-01-18T14:30:00');
+    // Event Date: Jan 18, 2026, 10:30 AM IST to 2:30 PM IST
+    // IST is GMT+5:30
+    // 10:30 AM IST = 05:00 AM GMT
+    // 02:30 PM IST = 09:00 AM GMT
+    const startDate = '20260118T050000Z';
+    const endDate = '20260118T090000Z';
 
-    // Format dates for .ics file (YYYYMMDDTHHmmss)
-    const formatDate = (date) => {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
-        return `${year}${month}${day}T${hours}${minutes}${seconds}`;
-    };
+    // Detect User Agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
-    const startDateTime = formatDate(eventStartDate);
-    const endDateTime = formatDate(eventEndDate);
-    const currentDateTime = formatDate(new Date());
+    if (isAndroid) {
+        // Android - Open Google Calendar via Web Link (Intent)
+        const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}`;
+        window.open(gCalUrl, '_blank');
+    } else {
+        // iOS and Desktop - Standard .ICS File
+        // Format dates for .ics file (Same format YYYYMMDDTHHmmssZ)
+        const now = new Date();
+        const stampDate = now.toISOString().replace(/[-:.]/g, '').split('.')[0] + 'Z';
 
-    // Create .ics file content
-    const icsContent = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//Hindu Samajotsava//Event//EN',
-        'CALSCALE:GREGORIAN',
-        'METHOD:PUBLISH',
-        'BEGIN:VEVENT',
-        `DTSTART:${startDateTime}`,
-        `DTEND:${endDateTime}`,
-        `DTSTAMP:${currentDateTime}`,
-        `UID:hindu-samajotsava-2026@varahasandra`,
-        `SUMMARY:${eventTitle}`,
-        `DESCRIPTION:${eventDescription.replace(/\n/g, '\\n')}`,
-        `LOCATION:${eventLocation}`,
-        'STATUS:CONFIRMED',
-        'SEQUENCE:0',
-        'BEGIN:VALARM',
-        'TRIGGER:-PT24H',
-        'ACTION:DISPLAY',
-        'DESCRIPTION:Reminder: Hindu Samajotsava tomorrow',
-        'END:VALARM',
-        'END:VEVENT',
-        'END:VCALENDAR'
-    ].join('\r\n');
+        const icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Hindu Samajotsava//Event//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            'BEGIN:VEVENT',
+            `DTSTART:${startDate}`, // UTC Time
+            `DTEND:${endDate}`,     // UTC Time
+            `DTSTAMP:${stampDate}`,
+            `UID:hindu-samajotsava-2026@varahasandra`,
+            `SUMMARY:${eventTitle}`,
+            `DESCRIPTION:${eventDescription.replace(/\n/g, '\\n')}`,
+            `LOCATION:${eventLocation}`,
+            'STATUS:CONFIRMED',
+            'SEQUENCE:0',
+            'BEGIN:VALARM',
+            'TRIGGER:-PT24H',
+            'ACTION:DISPLAY',
+            'DESCRIPTION:Reminder: Hindu Samajotsava tomorrow',
+            'END:VALARM',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
 
-    // Create blob and download
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'Hindu_Samajotsava_2026.ics';
+        // Create blob and open
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
 
-    // Trigger download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Show confirmation message
-    alert('Calendar event downloaded! Please open the file to add it to your calendar.');
+        if (isIOS) {
+            // For iOS, using FileReader to open as data URI sometimes works better for direct opening
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                window.location.href = e.target.result;
+                // Fallback alert if it doesn't open automatically
+                setTimeout(() => {
+                    alert("Tap 'Add to Calendar' if prompted, or check your downloads.");
+                }, 1000);
+            }
+            reader.readAsDataURL(blob);
+        } else {
+            // Desktop standard download
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'Hindu_Samajotsava_2026.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert('Calendar event downloaded! Please open the file to add it to your calendar.');
+        }
+    }
 }
 
 /**
@@ -346,4 +359,3 @@ function setLanguage(lang) {
         }
     }
 }
-
