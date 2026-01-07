@@ -1,0 +1,912 @@
+/* ===================================
+   CSS VARIABLES & DESIGN TOKENS
+   =================================== */
+:root {
+    /* Color Palette - Red/Yellow Hindu Theme */
+    --primary-red: #C41E3A;
+    --deep-red: #8B0000;
+    --bright-red: #DC143C;
+    --light-red: #FF6B6B;
+    --accent-gold: #FFD700;
+    --accent-yellow: #FFA500;
+
+    /* Background Colors */
+    --bg-gradient-start: #FFF5E6;
+    --bg-gradient-end: #FFE4B5;
+    --bg-light: #FFF8F0;
+    --bg-white: #FFFFFF;
+    --bg-dark: #4A0404;
+
+    /* Text Colors */
+    --text-primary: #4A0404;
+    --text-secondary: #8B0000;
+    --text-light: #FFFFFF;
+    --text-muted: #C41E3A;
+
+    /* Fonts */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 50%;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(123, 44, 191, 0.1);
+    --shadow-md: 0 4px 16px rgba(123, 44, 191, 0.15);
+    --shadow-lg: 0 8px 32px rgba(123, 44, 191, 0.2);
+    --shadow-xl: 0 16px 48px rgba(123, 44, 191, 0.25);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===================================
+   HEADER STYLES
+   =================================== */
+.header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.om-symbol {
+    font-family: var(--font-devanagari);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: glow 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    margin: var(--spacing-sm) 0;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin: var(--spacing-sm) 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #FFE4B5;
+    margin: 0.25rem 0;
+    font-weight: 500;
+}
+
+.subtitle-location {
+    font-size: 1rem;
+    color: #FFE4B5;
+    margin: 0.25rem 0;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    margin: 0.2rem 0;
+    font-style: italic;
+}
+
+.bharat-mata-container {
+    margin: var(--spacing-md) 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.bharat-mata-header {
+    width: 200px;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--accent-gold);
+    transition: all var(--transition-normal);
+}
+
+.bharat-mata-header:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+/* ===================================
+   INTRODUCTION SECTION
+   =================================== */
+.introduction {
+    background: linear-gradient(to bottom,
+            #FFF8F0 0%,
+            #FFF5E6 100%);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(196, 30, 58, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.intro-text::first-letter {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-red);
+    float: left;
+    line-height: 1;
+    margin-right: 0.1em;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg,
+            #FFF5E6 0%,
+            #FFE4B5 50%,
+            #FFF8F0 100%);
+    padding: var(--spacing-xl) 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.event-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+}
+
+.event-description {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+/* ===================================
+   EVENT DETAILS SECTION
+   =================================== */
+.event-details {
+    background: linear-gradient(to bottom, var(--bg-light), var(--bg-white));
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 10;
+}
+
+.event-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-detail-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(196, 30, 58, 0.2);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+.event-detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-red) 0%, var(--accent-gold) 50%, var(--primary-red) 100%);
+}
+
+.event-detail-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 48px rgba(196, 30, 58, 0.3);
+    border-color: var(--accent-gold);
+}
+
+.event-detail-card .icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.event-detail-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-red);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-detail-card .detail-text {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 0.3rem 0;
+}
+
+.event-detail-card .detail-subtext {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Venue Card Link Styling */
+.venue-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all var(--transition-normal);
+}
+
+.venue-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.venue-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 16px 56px rgba(196, 30, 58, 0.4);
+    border-color: var(--primary-red);
+}
+
+.map-hint {
+    font-size: 0.9rem;
+    color: var(--primary-red);
+    font-weight: 600;
+    margin-top: var(--spacing-sm);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.venue-card:hover .map-hint {
+    opacity: 1;
+}
+
+/* Add to Calendar Button */
+.calendar-button-container {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    padding: var(--spacing-md) 0;
+}
+
+.add-to-calendar-btn {
+    background: linear-gradient(135deg, var(--primary-red) 0%, #8B0000 100%);
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 16px rgba(196, 30, 58, 0.4);
+    transition: all var(--transition-normal);
+    font-family: var(--font-heading);
+}
+
+.add-to-calendar-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(196, 30, 58, 0.6);
+    background: linear-gradient(135deg, #8B0000 0%, var(--primary-red) 100%);
+}
+
+.add-to-calendar-btn:active {
+    transform: translateY(-2px);
+}
+
+.calendar-icon {
+    font-size: 1.5rem;
+}
+
+.button-text {
+    letter-spacing: 0.5px;
+}
+
+/* ===================================
+   CONTAINER & SECTIONS
+   =================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-yellow) 100%);
+    border-radius: 2px;
+}
+
+/* ===================================
+   DIVINE PRESENCE SECTION
+   =================================== */
+.divine-presence {
+    background: linear-gradient(to bottom, var(--bg-light), var(--bg-white));
+    padding-top: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.divine-card {
+    background: linear-gradient(135deg, var(--deep-red) 0%, var(--primary-red) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+}
+
+.divine-card:hover {
+    transform: scale(1.02);
+}
+
+.divine-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.divine-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.divine-location {
+    font-size: 1.2rem;
+    color: #FFE4B5;
+    font-weight: 500;
+}
+
+/* ===================================
+   SPEAKERS SECTION
+   =================================== */
+.speakers {
+    background: var(--bg-white);
+}
+
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.speaker-card {
+    background: linear-gradient(to bottom, var(--bg-light), var(--bg-white));
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.speaker-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-red);
+}
+
+.speaker-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 4px solid var(--primary-red);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.speaker-card:hover .speaker-image-container {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+}
+
+.speaker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.speaker-card:hover .speaker-img {
+    transform: scale(1.15);
+}
+
+.speaker-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    margin-bottom: var(--spacing-sm);
+}
+
+.speaker-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ===================================
+   PROGRAM SECTION
+   =================================== */
+.program {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    position: relative;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.program-item {
+    background: var(--bg-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-normal);
+    border-left: 4px solid var(--primary-red);
+}
+
+.program-item:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--accent-gold);
+}
+
+.program-number {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    font-weight: 700;
+    min-width: 30px;
+}
+
+.program-text {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.note-card {
+    background: linear-gradient(135deg, var(--deep-red) 0%, var(--primary-red) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    margin-top: var(--spacing-lg);
+    border: 2px solid var(--accent-gold);
+}
+
+.note-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.note-text {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* ===================================
+   CALL TO ACTION SECTION
+   =================================== */
+.cta {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+    padding: var(--spacing-xl) var(--spacing-sm);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" opacity="0.05">ॐ</text></svg>') repeat;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100px);
+    }
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-subtitle {
+    font-size: 1.3rem;
+    color: #FFE4B5;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   FOOTER SECTION
+   =================================== */
+.footer {
+    background: linear-gradient(to bottom, var(--bg-dark), #10002B);
+    padding: var(--spacing-xl) var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-om {
+    font-family: var(--font-devanagari);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #FFE4B5;
+    font-weight: 600;
+}
+
+.footer-location {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #FFE4B5;
+}
+
+.footer-tagline {
+    font-size: 0.95rem;
+    margin: var(--spacing-sm) 0;
+    color: var(--accent-gold);
+    font-style: italic;
+}
+
+.qr-section {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+}
+
+.qr-title {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.qr-title-kannada {
+    font-size: 1rem;
+    color: #FFE4B5;
+    margin-bottom: var(--spacing-md);
+}
+
+.qr-code-container {
+    display: inline-block;
+    padding: var(--spacing-sm);
+    background: var(--bg-white);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 40vh;
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero-content {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .event-title {
+        font-size: 2rem;
+    }
+
+    .event-description {
+        font-size: 1.1rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .event-details-grid,
+    .speakers-grid,
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .om-symbol {
+        font-size: 2rem;
+    }
+
+    .cta-title {
+        font-size: 1.8rem;
+    }
+
+    .bharat-mata-header {
+        width: 150px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .intro-content {
+        padding: var(--spacing-md);
+    }
+
+    .add-to-calendar-btn {
+        font-size: 1rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .calendar-icon {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .event-details-grid,
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-card,
+.speaker-card,
+.program-item {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
