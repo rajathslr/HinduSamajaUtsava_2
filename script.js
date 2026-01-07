@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add intersection observer for animations
     initScrollAnimations();
+
+    // Initialize language
+    initLanguage();
 });
 
 /**
@@ -194,5 +197,153 @@ function addToCalendar() {
 
     // Show confirmation message
     alert('Calendar event downloaded! Please open the file to add it to your calendar.');
+}
+
+/**
+ * Language Translation Logic
+ */
+const translations = {
+    en: {
+        mainTitle: "Hindu Samajotsava",
+        organizingCommittee: "Hindu Samajotsava Organizing Committee",
+        location: "Channasandra, Bengaluru",
+        tagline1: "For building a strong Bharat &",
+        tagline2: "For the betterment of Hindu Society",
+        introText: "Hindu Samajotsava is a festival that celebrates our culture, strength and unity. It is a platform to remember our roots and build the future of a strong India. A festival that proclaims the unity of Hindu society with the enthusiasm of youth power. A special occasion that is the confluence of heritage and progress. Let us participate with our family and friends in this festival that aims to bring about transformation in Hindu society through social harmony, family education, environmental protection, indigenous lifestyle and civic etiquette.",
+        dateLabel: "Date",
+        eventDate: "18-01-2026",
+        eventDay: "Sunday",
+        timeLabel: "Time",
+        eventTime: "10:30 AM",
+        eventOnwards: "Onwards",
+        venueLabel: "Venue",
+        venueName: "Basaveshwara Temple",
+        venueAddress: "Varahasandra, Sompura",
+        mapHint: "📱 Click for directions",
+        addToCalendar: "Add to Calendar",
+        divinePresenceTitle: "Divine Presence",
+        swamijiName: "Shri Ni Pra Swa Mallikarjuna Devaru",
+        swamijiLocation: "Sarpathooshana Matt, Chikkapete, Bengaluru",
+        guidingSpeechTitle: "Guiding Speech",
+        speaker1Name: "Shri Karunakara Rai",
+        speaker1Title: "Professor, NMIT, Bengaluru",
+        speaker2Name: "Smt. Veena P.",
+        speaker2Title: "Mahila Swa SahayaSangha, President",
+        programDetailsTitle: "Program Details",
+        program1: "A grand procession",
+        program2: "Gopuja",
+        program3: "Lighting the lamp & Bharath Mata Puja",
+        program4: "Blessings from Swamiji",
+        program5: "Addresses by honorable guests",
+        program6: "Cultural Program",
+        program7: "Singing of Vande Mataram by all",
+        program8: "Prasada Distribution",
+        noteTitle: "Note:",
+        noteText: "There will also be stalls selling Swadeshi products at the venue. Everyone is kindly requested to make use of this opportunity",
+        ctaTitle: "Let thousands gather and take part",
+        ctaSubtitle: "Be a part of this grand celebration of our culture and heritage",
+        footerTagline: "For building a strong Bharat & For the betterment of Hindu Society",
+        qrScan: "Scan to visit our website",
+        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
+    },
+    kn: {
+        mainTitle: "ಹಿಂದೂ ಸಮಾಜೋತ್ಸವ",
+        organizingCommittee: "ಹಿಂದೂ ಸಮಾಜೋತ್ಸವ ಆಯೋಜನಾ ಸಮಿತಿ",
+        location: "ಚನ್ನಸಂದ್ರ, ಬೆಂಗಳೂರು",
+        tagline1: "ಸಮರ್ಥ ಭಾರತದ ನಿರ್ಮಾಣಕ್ಕಾಗಿ &",
+        tagline2: "ಹಿಂದೂ ಸಮಾಜದ ಉನ್ನತಿಗಾಗಿ",
+        introText: "ಹಿಂದೂ ಸಮಾಜೋತ್ಸವವು ನಮ್ಮ ಸಂಸ್ಕೃತಿ, ಶಕ್ತಿ ಮತ್ತು ಒಗ್ಗಟ್ಟನ್ನು ಆಚರಿಸುವ ಹಬ್ಬವಾಗಿದೆ. ಇದು ನಮ್ಮ ಬೇರುಗಳನ್ನು ನೆನಪಿಸಿಕೊಳ್ಳಲು ಮತ್ತು ಬಲಿಷ್ಠ ಭಾರತದ ಭವಿಷ್ಯವನ್ನು ನಿರ್ಮಿಸಲು ಒಂದು ವೇದಿಕೆಯಾಗಿದೆ. ಯುವಶಕ್ತಿಯ ಉತ್ಸಾಹದೊಂದಿಗೆ ಹಿಂದೂ ಸಮಾಜದ ಏಕತೆಯನ್ನು ಸಾರುವ ಹಬ್ಬ. ಪರಂಪರೆ ಮತ್ತು ಪ್ರಗತಿಯ ಸಂಗಮವಾಗಿರುವ ವಿಶೇಷ ಸಂದರ್ಭ. ಸಾಮಾಜಿಕ ಸಾಮರಸ್ಯ, ಕುಟುಂಬ ಪ್ರಬೋದನೆ, ಪರಿಸರ ಸಂರಕ್ಷಣೆ, ಸ್ವದೇಶಿ ಜೀವನಶೈಲಿ ಮತ್ತು ನಾಗರಿಕ ಶಿಷ್ಟಾಚಾರಗಳ ಮೂಲಕ ಹಿಂದೂ ಸಮಾಜದಲ್ಲಿ ಪರಿವರ್ತನೆ ತರುವ ಗುರಿಯನ್ನು ಹೊಂದಿರುವ ಈ ಉತ್ಸವದಲ್ಲಿ ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರೊಂದಿಗೆ ಭಾಗವಹಿಸೋಣ.",
+        dateLabel: "ದಿನಾಂಕ",
+        eventDate: "18-01-2026",
+        eventDay: "ಭಾನುವಾರ",
+        timeLabel: "ಸಮಯ",
+        eventTime: "ಬೆಳಿಗ್ಗೆ 10:30",
+        eventOnwards: "ರಿಂದ",
+        venueLabel: "ಸ್ಥಳ",
+        venueName: "ಬಸವೇಶ್ವರ ದೇವಸ್ಥಾನ",
+        venueAddress: "ವರಹಾಸಂದ್ರ, ಸೋಂಪುರ",
+        mapHint: "📱 ದಾರಿಗಾಗಿ ಕ್ಲಿಕ್ ಮಾಡಿ",
+        addToCalendar: "ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ",
+        divinePresenceTitle: "ದಿವ್ಯ ಸಾನ್ನಿಧ್ಯ",
+        swamijiName: "ಶ್ರೀ ನಿ ಪ್ರ ಸ್ವ ಮಲ್ಲಿಕಾರ್ಜುನ ಪಂಡಿತಾರಾಧ್ಯ ಶಿವಾಚಾರ್ಯ ಸ್ವಾಮೀಜಿ",
+        swamijiLocation: "ಸರ್ಪಭೂಷಣ ಮಠ, ಚಿಕ್ಕಪೇಟೆ, ಬೆಂಗಳೂರು",
+        guidingSpeechTitle: "ಮಾತೃಭಾಷಣ",
+        speaker1Name: "ಶ್ರೀ ಕರುಣಾಕರ ರೈ",
+        speaker1Title: "ಪ್ರಾಧ್ಯಾಪಕರು, NMIT, ಬೆಂಗಳೂರು",
+        speaker2Name: "ಶ್ರೀಮತಿ ವೀಣಾ ಪಿ.",
+        speaker2Title: "ಅಧ್ಯಕ್ಷರು, ಮಹಿಳಾ ಸ್ವಸಹಾಯ ಸಂಘ",
+        programDetailsTitle: "ಕಾರ್ಯಕ್ರಮದ ವಿವರಗಳು",
+        program1: "ಭವ್ಯ ಶೋಭಾಯಾತ್ರೆ",
+        program2: "ಗೋ ಪೂಜೆ",
+        program3: "ದೀಪ ಪ್ರಜ್ವಲನೆ & ಭಾರತ ಮಾತೆ ಪೂಜೆ",
+        program4: "ಪೂಜ್ಯ ಸ್ವಾಮೀಜಿ ಅವರಿಂದ ಆಶೀರ್ವಚನ",
+        program5: "ಗಣ್ಯರಿಂದ ನುಡಿ ನಮನ",
+        program6: "ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮ",
+        program7: "ವಂದೇ ಮಾತರಂ ಗಾಯನ",
+        program8: "ಪ್ರಸಾದ ವಿತರಣೆ",
+        noteTitle: "ಸೂಚನೆ:",
+        noteText: "ಸ್ಥಳದಲ್ಲಿ ಸ್ವದೇಶಿ ವಸ್ತುಗಳ ಮಾರಾಟ ಮಳಿಗೆಗಳು ಇರುತ್ತವೆ. ಎಲ್ಲರೂ ಇದರ ಸದುಪಯೋಗ ಪಡೆದುಕೊಳ್ಳಬೇಕಾಗಿ ವಿನಂತಿ.",
+        ctaTitle: "ಸಾವಿರಾರು ಸಂಖ್ಯೆಯಲ್ಲಿ ಸೇರೋಣ",
+        ctaSubtitle: "ನಮ್ಮ ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯ ಈ ಭವ್ಯ ಆಚರಣೆಯ ಭಾಗವಾಗಿರಿ",
+        footerTagline: "ಸಮರ್ಥ ಭಾರತದ ನಿರ್ಮಾಣಕ್ಕಾಗಿ & ಹಿಂದೂ ಸಮಾಜದ ಉನ್ನತಿಗಾಗಿ",
+        qrScan: "ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
+    }
+};
+
+let currentLang = 'en';
+
+function initLanguage() {
+    // Check if user has a preferred language
+    const savedLang = localStorage.getItem('hinduSamajLang');
+    if (savedLang) {
+        setLanguage(savedLang);
+    }
+}
+
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'kn' : 'en';
+    setLanguage(newLang);
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('hinduSamajLang', lang);
+
+    // Update toggle button text
+    const btnText = document.getElementById('lang-btn-text');
+    if (btnText) {
+        btnText.textContent = lang === 'en' ? 'ಕನ್ನಡ' : 'English';
+    }
+
+    // Update fonts based on language
+    if (lang === 'kn') {
+        document.body.classList.add('lang-kn');
+    } else {
+        document.body.classList.remove('lang-kn');
+    }
+
+    // Translate all elements
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Toggle QR code text visibility (special case due to separate elements)
+    const qrEn = document.querySelector('.qr-title');
+    const qrKn = document.querySelector('.qr-title-kannada');
+
+    if (qrEn && qrKn) {
+        if (lang === 'en') {
+            qrEn.style.display = 'block';
+            qrKn.style.display = 'none';
+        } else {
+            qrEn.style.display = 'none';
+            qrKn.style.display = 'block';
+        }
+    }
 }
 

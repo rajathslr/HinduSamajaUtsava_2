@@ -36,13 +36,17 @@
 <body>
     <!-- Header -->
     <header class="header">
+        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle Language">
+            <span class="lang-text" id="lang-btn-text">ಕನ್ನಡ</span>
+        </button>
+
         <div class="om-symbol">ॐ</div>
         <div class="header-content">
-            <h1 class="main-title">Hindu Samajotsava</h1>
-            <p class="subtitle">Hindu Samajotsava Organizing Committee</p>
-            <p class="subtitle-location">Channasandra, Bengaluru</p>
-            <p class="tagline">For building a strong Bharat &</p>
-            <p class="tagline">For the betterment of Hindu Society</p>
+            <h1 class="main-title" data-i18n="mainTitle">Hindu Samajotsava</h1>
+            <p class="subtitle" data-i18n="organizingCommittee">Hindu Samajotsava Organizing Committee</p>
+            <p class="subtitle-location" data-i18n="location">Channasandra, Bengaluru</p>
+            <p class="tagline" data-i18n="tagline1">For building a strong Bharat &</p>
+            <p class="tagline" data-i18n="tagline2">For the betterment of Hindu Society</p>
         </div>
         <div class="bharat-mata-container">
             <img src="bharat-mata.jpg" alt="Bharat Mata" class="bharat-mata-header">
@@ -54,7 +58,7 @@
     <section class="introduction">
         <div class="container">
             <div class="intro-content">
-                <p class="intro-text">
+                <p class="intro-text" data-i18n="introText">
                     Hindu Samajotsava is a festival that celebrates our culture, strength and unity. It is a platform
                     to remember our roots and build the future of a strong India. A festival that proclaims the unity
                     of Hindu society with the enthusiasm of youth power. A special occasion that is the confluence of
@@ -72,26 +76,26 @@
             <div class="event-details-grid">
                 <div class="event-detail-card">
                     <div class="icon">📅</div>
-                    <h3>Date</h3>
-                    <p class="detail-text">18-01-2026</p>
-                    <p class="detail-subtext">Sunday</p>
+                    <h3 data-i18n="dateLabel">Date</h3>
+                    <p class="detail-text" data-i18n="eventDate">18-01-2026</p>
+                    <p class="detail-subtext" data-i18n="eventDay">Sunday</p>
                 </div>
 
                 <div class="event-detail-card">
                     <div class="icon">⏰</div>
-                    <h3>Time</h3>
-                    <p class="detail-text">10:30 AM</p>
-                    <p class="detail-subtext">Onwards</p>
+                    <h3 data-i18n="timeLabel">Time</h3>
+                    <p class="detail-text" data-i18n="eventTime">10:30 AM</p>
+                    <p class="detail-subtext" data-i18n="eventOnwards">Onwards</p>
                 </div>
 
                 <a href="https://maps.app.goo.gl/n3WwfxZ6XZeQukhr8" target="_blank" rel="noopener noreferrer"
                     class="venue-link">
                     <div class="event-detail-card venue-card">
                         <div class="icon">📍</div>
-                        <h3>Venue</h3>
-                        <p class="detail-text">Basaveshwara Temple</p>
-                        <p class="detail-subtext">Varahasandra, Sompura</p>
-                        <p class="map-hint">📱 Click for directions</p>
+                        <h3 data-i18n="venueLabel">Venue</h3>
+                        <p class="detail-text" data-i18n="venueName">Basaveshwara Temple</p>
+                        <p class="detail-subtext" data-i18n="venueAddress">Varahasandra, Sompura</p>
+                        <p class="map-hint" data-i18n="mapHint">📱 Click for directions</p>
                     </div>
                 </a>
             </div>
@@ -100,7 +104,7 @@
             <div class="calendar-button-container">
                 <button onclick="addToCalendar()" class="add-to-calendar-btn">
                     <span class="calendar-icon">📅</span>
-                    <span class="button-text">Add to Calendar</span>
+                    <span class="button-text" data-i18n="addToCalendar">Add to Calendar</span>
                 </button>
             </div>
         </div>
@@ -109,11 +113,11 @@
     <!-- Divine Presence Section -->
     <section class="divine-presence">
         <div class="container">
-            <h2 class="section-title">Divine Presence</h2>
+            <h2 class="section-title" data-i18n="divinePresenceTitle">Divine Presence</h2>
             <div class="divine-card">
                 <div class="divine-icon">🕉️</div>
-                <h3>Shri Ni Pra Swa Mallikarjuna Devaru</h3>
-                <p class="divine-location">Sarpathooshana Matt, Chikkapete, Bengaluru</p>
+                <h3 data-i18n="swamijiName">Shri Ni Pra Swa Mallikarjuna Devaru</h3>
+                <p class="divine-location" data-i18n="swamijiLocation">Sarpathooshana Matt, Chikkapete, Bengaluru</p>
             </div>
         </div>
     </section>
@@ -121,23 +125,23 @@
     <!-- Speakers Section -->
     <section class="speakers">
         <div class="container">
-            <h2 class="section-title">Guiding Speech</h2>
+            <h2 class="section-title" data-i18n="guidingSpeechTitle">Guiding Speech</h2>
 
             <div class="speakers-grid">
                 <div class="speaker-card">
                     <div class="speaker-image-container">
                         <img src="speaker-karunakara-rai.jpg" alt="Shri Karunakara Rai" class="speaker-img">
                     </div>
-                    <h3 class="speaker-name">Shri Karunakara Rai</h3>
-                    <p class="speaker-title">Professor, NMIT, Bengaluru</p>
+                    <h3 class="speaker-name" data-i18n="speaker1Name">Shri Karunakara Rai</h3>
+                    <p class="speaker-title" data-i18n="speaker1Title">Professor, NMIT, Bengaluru</p>
                 </div>
 
                 <div class="speaker-card">
                     <div class="speaker-image-container">
                         <img src="speaker-veena-p.jpg" alt="Smt. Veena P." class="speaker-img">
                     </div>
-                    <h3 class="speaker-name">Smt. Veena P.</h3>
-                    <p class="speaker-title">Mahila Swa SahayaSangha, President</p>
+                    <h3 class="speaker-name" data-i18n="speaker2Name">Smt. Veena P.</h3>
+                    <p class="speaker-title" data-i18n="speaker2Title">Mahila Swa SahayaSangha, President</p>
                 </div>
             </div>
         </div>
@@ -146,46 +150,47 @@
     <!-- Program Details Section -->
     <section class="program">
         <div class="container">
-            <h2 class="section-title">Program Details</h2>
+            <h2 class="section-title" data-i18n="programDetailsTitle">Program Details</h2>
 
             <div class="program-grid">
                 <div class="program-item">
                     <span class="program-number">1.</span>
-                    <span class="program-text">A grand procession</span>
+                    <span class="program-text" data-i18n="program1">A grand procession</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">2.</span>
-                    <span class="program-text">Gopuja</span>
+                    <span class="program-text" data-i18n="program2">Gopuja</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">3.</span>
-                    <span class="program-text">Lighting the lamp & Bharath Mata Puja</span>
+                    <span class="program-text" data-i18n="program3">Lighting the lamp & Bharath Mata Puja</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">4.</span>
-                    <span class="program-text">Blessings from Swamiji</span>
+                    <span class="program-text" data-i18n="program4">Blessings from Swamiji</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">5.</span>
-                    <span class="program-text">Addresses by honorable guests</span>
+                    <span class="program-text" data-i18n="program5">Addresses by honorable guests</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">6.</span>
-                    <span class="program-text">Cultural Program</span>
+                    <span class="program-text" data-i18n="program6">Cultural Program</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">7.</span>
-                    <span class="program-text">Singing of Vande Mataram by all</span>
+                    <span class="program-text" data-i18n="program7">Singing of Vande Mataram by all</span>
                 </div>
                 <div class="program-item">
                     <span class="program-number">8.</span>
-                    <span class="program-text">Prasada Distribution</span>
+                    <span class="program-text" data-i18n="program8">Prasada Distribution</span>
                 </div>
             </div>
 
             <div class="note-card">
-                <p class="note-title">Note:</p>
-                <p class="note-text">There will also be stalls selling Swadeshi products at the venue. Everyone is
+                <p class="note-title" data-i18n="noteTitle">Note:</p>
+                <p class="note-text" data-i18n="noteText">There will also be stalls selling Swadeshi products at the
+                    venue. Everyone is
                     kindly requested to make use of this opportunity</p>
             </div>
         </div>
@@ -194,8 +199,9 @@
     <!-- Call to Action -->
     <section class="cta">
         <div class="container">
-            <h2 class="cta-title">Let thousands gather and take part</h2>
-            <p class="cta-subtitle">Be a part of this grand celebration of our culture and heritage</p>
+            <h2 class="cta-title" data-i18n="ctaTitle">Let thousands gather and take part</h2>
+            <p class="cta-subtitle" data-i18n="ctaSubtitle">Be a part of this grand celebration of our culture and
+                heritage</p>
         </div>
     </section>
 
@@ -204,13 +210,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-om">ॐ</div>
-                <p class="footer-text">Hindu Samajotsava Organizing Committee</p>
-                <p class="footer-location">Channasandra, Bengaluru</p>
-                <p class="footer-tagline">For building a strong Bharat & For the betterment of Hindu Society</p>
+                <p class="footer-text" data-i18n="organizingCommittee">Hindu Samajotsava Organizing Committee</p>
+                <p class="footer-location" data-i18n="location">Channasandra, Bengaluru</p>
+                <p class="footer-tagline" data-i18n="footerTagline">For building a strong Bharat & For the betterment of
+                    Hindu Society</p>
 
                 <div class="qr-section">
-                    <p class="qr-title">Scan to visit our website</p>
-                    <p class="qr-title-kannada">ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</p>
+                    <p class="qr-title" data-i18n="qrScan">Scan to visit our website</p>
+                    <p class="qr-title-kannada" style="display:none;" data-i18n="qrScanKn">ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು
+                        ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</p>
                     <div class="qr-code-container">
                         <canvas id="qrcode"></canvas>
                     </div>

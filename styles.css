@@ -133,6 +133,40 @@ body {
     }
 }
 
+/* Language Toggle Button */
+.lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-red);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lang-toggle:hover {
+    background: var(--primary-red);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+}
+
+.lang-kn .intro-text,
+.lang-kn .detail-text,
+.lang-kn .program-text {
+    line-height: 1.9;
+}
+
 .header-content {
     position: relative;
     z-index: 1;
