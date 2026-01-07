@@ -851,6 +851,30 @@ section {
     box-shadow: var(--shadow-lg);
 }
 
+.visitor-counter-container {
+    margin-top: var(--spacing-md);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.visitor-text {
+    color: #FFE4B5;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    margin: 0;
+}
+
+.count-number {
+    font-weight: 700;
+    color: var(--accent-gold);
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
 /* ===================================
    RESPONSIVE DESIGN
    =================================== */

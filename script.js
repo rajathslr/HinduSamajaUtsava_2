@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize language
     initLanguage();
+
+    // Initialize Visitor Count
+    initVisitorCount();
 });
 
 /**
@@ -20,12 +23,12 @@ function generateQRCode() {
     const qrcodeContainer = document.getElementById('qrcode');
 
     if (qrcodeContainer) {
-        // Get the current page URL
-        const currentURL = window.location.href;
+        // Use the specific GitHub Pages URL as requested
+        const targetURL = 'https://rajathslr.github.io/HinduSamajaUtsava_2/';
 
         // Generate QR code
         new QRCode(qrcodeContainer, {
-            text: currentURL,
+            text: targetURL,
             width: 200,
             height: 200,
             colorDark: "#C41E3A",
@@ -257,7 +260,8 @@ const translations = {
         ctaSubtitle: "Be a part of this grand celebration of our culture and heritage",
         footerTagline: "For building a strong Bharat & For the betterment of Hindu Society",
         qrScan: "Scan to visit our website",
-        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
+        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+        visitorCount: "Page Hits"
     },
     kn: {
         mainTitle: "ಹಿಂದೂ ಸಮಾಜೋತ್ಸವ",
@@ -300,7 +304,8 @@ const translations = {
         ctaSubtitle: "ನಮ್ಮ ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯ ಈ ಭವ್ಯ ಆಚರಣೆಯ ಭಾಗವಾಗಿರಿ",
         footerTagline: "ಸಮರ್ಥ ಭಾರತದ ನಿರ್ಮಾಣಕ್ಕಾಗಿ & ಹಿಂದೂ ಸಮಾಜದ ಉನ್ನತಿಗಾಗಿ",
         qrScan: "ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
-        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
+        qrScanKn: "ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+        visitorCount: "ಪುಟ ವೀಕ್ಷಣೆಗಳು"
     }
 };
 
@@ -358,4 +363,30 @@ function setLanguage(lang) {
             qrKn.style.display = 'block';
         }
     }
+}
+
+/**
+ * Initialize Visitor Count
+ */
+function initVisitorCount() {
+    const counterElement = document.getElementById('visit-count');
+    if (!counterElement) return;
+
+    // Use the unique namespace defined for this project
+    // API: CounterAPI.dev
+    const namespace = 'hindu-samajotsava-2026';
+    const key = 'homepage';
+
+    fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.count) {
+                counterElement.innerText = data.count;
+            }
+        })
+        .catch(err => {
+            console.error('Counter Error:', err);
+            // Fallback or leave as "..."
+            // console.log("Failed to fetch count");
+        });
 }
